@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="未完成成果物研究所 - Non-profit Technical Community / Independent R&D Team">
+  <title>未完成成果物研究所 | Incomplete-Outputs-Lab</title>
+
+  <!-- IBM Plex Mono Font -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS v4 Play CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css">
+
+  <!-- Tailwind Custom Theme -->
+  <style type="text/tailwindcss">
+    @theme {
+      --color-terminal-green: #00ff00;
+      --color-terminal-bg: #000000;
+      --color-terminal-text: #cccccc;
+      --font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body class="bg-black text-[#cccccc] font-mono overflow-x-hidden">
+  <!-- Scanline Overlay -->
+  <div id="scanline-overlay" class="scanline-overlay"></div>
+
+  <!-- Background Waveforms -->
+  <div id="background-visual" class="fixed inset-0 -z-10 opacity-20">
+    <svg id="waveform-svg" class="w-full h-full"></svg>
+  </div>
+
+  <main class="relative z-10">
+    <!-- Header -->
+    <header class="container mx-auto px-4 py-8 md:py-16">
+      <h1 class="text-4xl md:text-6xl terminal-glow font-semibold">未完成成果物研究所</h1>
+      <p class="text-sm md:text-base text-[#00ff00] mt-2">Incomplete-Outputs-Lab</p>
+      <p class="text-xs md:text-sm text-[#cccccc] opacity-70 mt-1">Non-profit Technical Community / Independent R&D Team</p>
+      <p class="text-xs md:text-sm text-[#cccccc] opacity-70">Active Professionals' Guild</p>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container mx-auto px-4 py-12 md:py-20">
+      <h2 class="text-xl md:text-2xl mb-6 text-[#00ff00]">[ ABOUT ]</h2>
+      <p class="text-sm md:text-base leading-relaxed max-w-3xl">
+        未完成成果物研究所は、未成が主導する配信プロダクション向け各種ツール・ハードウェア機材の研究開発チームです。2026年1月現在、全メンバーが兼業であり、メインの業務がある傍ら未成研の研究開発を非営利で行っています。
+      </p>
+      <p class="text-xs md:text-sm text-[#00ff00] mt-4 opacity-80">
+        ※ 未成研は会社組織ではありません。独立した技術者集団として運営されています。
+      </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container mx-auto px-4 py-12 md:py-20">
+      <h2 class="text-xl md:text-2xl mb-8 text-[#00ff00]">[ ACTIVE_PROJECTS ]</h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+        <!-- Project Card: obs-sync -->
+        <article class="terminal-border p-6 flex flex-col">
+          <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+            <h3 class="text-lg font-semibold text-[#00ff00]">obs-sync</h3>
+            <span class="status-badge">[ PHASE: PRODUCTION ]</span>
+          </div>
+
+          <p class="text-xs text-[#cccccc] opacity-60 mb-2">Distributed OBS Synchronization System</p>
+          <p class="text-xs text-[#00ff00] italic mb-4">「運用ミスを許さない静寂の同期」</p>
+
+          <!-- Waveform Monitor -->
+          <div class="waveform-monitor h-48 md:h-56 mt-2 mb-4 flex-shrink-0" data-project="obs-sync">
+            <svg class="w-full h-full"></svg>
+          </div>
+
+          <p class="text-sm leading-relaxed mb-4 flex-grow">
+            中〜大規模配信現場における、マルチインスタンスOBSの完全同期ソリューション。マスター/スレーブ構成による設定値のリアルタイム・ミラーリング。スレーブ側での予期せぬ変更を即座に検知し、インシデントを未然に防ぐ。
+          </p>
+
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="tech-tag">Rust</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Tauri</span>
+            <span class="tech-tag">WebSocket</span>
+            <span class="tech-tag">obs-websocket</span>
+          </div>
+        </article>
+
+        <!-- Project Card: stream-monitor -->
+        <article class="terminal-border p-6 flex flex-col">
+          <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+            <h3 class="text-lg font-semibold text-[#00ff00]">stream-monitor</h3>
+            <span class="status-badge">[ PHASE: ACTIVE ]</span>
+          </div>
+
+          <p class="text-xs text-[#cccccc] opacity-60 mb-2">Broadcast Statistics Analyzer</p>
+          <p class="text-xs text-[#00ff00] italic mb-4">「熱狂を、パケットから解析する」</p>
+
+          <!-- Waveform Monitor -->
+          <div class="waveform-monitor h-48 md:h-56 mt-2 mb-4 flex-shrink-0" data-project="stream-monitor">
+            <svg class="w-full h-full"></svg>
+          </div>
+
+          <p class="text-sm leading-relaxed mb-4 flex-grow">
+            配信データと視聴者体験を数値化する、エッジ動作型のアナリティクスエンジン。マルチビュー監視と並行し、コメント密度や視聴者情報をAPI経由で集積。DuckDB を採用したエッジDBにより、数百万件の統計データから盛り上がりの瞬間を即座に抽出。
+          </p>
+
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="tech-tag">Rust</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Tauri</span>
+            <span class="tech-tag">DuckDB</span>
+            <span class="tech-tag">Webhooks</span>
+          </div>
+        </article>
+
+        <!-- Project Card: vMix-Control-Series (Hardware) -->
+        <article class="terminal-border p-6 flex flex-col">
+          <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+            <h3 class="text-lg font-semibold text-[#00ff00]">vMix-Control-Series</h3>
+            <span class="status-badge">[ PHASE: R&D ]</span>
+          </div>
+
+          <p class="text-xs text-[#cccccc] opacity-60 mb-2">Embedded Interface Units</p>
+          <p class="text-xs text-[#00ff00] italic mb-4">「ソフトウェアの柔軟性に、ハードウェアの確信を」</p>
+
+          <!-- PCB Circuit Animation -->
+          <div class="pcb-circuit h-48 md:h-56 mt-2 mb-4 flex-shrink-0" data-project="vmix">
+            <svg class="w-full h-full"></svg>
+          </div>
+
+          <p class="text-sm leading-relaxed mb-3 flex-grow">
+            Raspberry Pi 5 / Pico をベースとした、放送用ソフトウェア vMix 専用のハードウェア・コントローラー群。Embassy (Rust for embedded) を活用し、超低遅延なレスポンスを実現。基板設計からファームウェアまで一貫した自社開発。
+          </p>
+
+          <!-- Lineup -->
+          <div class="mb-4 text-xs space-y-1">
+            <div><span class="text-[#00ff00]">▸ VMTALLY:</span> ハイブリッド・タリーシステム</div>
+            <div><span class="text-[#00ff00]">▸ VMReplay:</span> リプレイ特化インターフェース</div>
+            <div><span class="text-[#00ff00]">▸ VMSwitch:</span> スイッチング特化モデル</div>
+            <div><span class="text-[#00ff00]">▸ VMDeluxe:</span> 最上位機（NDIモニタリング）</div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="tech-tag">Rust (Embassy)</span>
+            <span class="tech-tag">RPi 5/Pico</span>
+            <span class="tech-tag">KiCad</span>
+            <span class="tech-tag">NDI SDK</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container mx-auto px-4 py-12 md:py-16 border-t border-[#00ff00] border-opacity-30 mt-20">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <p class="text-sm text-[#cccccc]">未完成成果物研究所 / Incomplete-Outputs-Lab</p>
+          <p class="text-xs text-[#cccccc] opacity-60 mt-1">Non-profit Technical Community</p>
+          <p class="text-xs text-[#cccccc] opacity-60">Active Professionals' Guild</p>
+        </div>
+        <div class="text-xs text-[#cccccc] opacity-60">
+          <p>※ 未成研は会社組織ではありません</p>
+          <p class="mt-1">全メンバーが本業を持つ兼業技術者集団です</p>
+        </div>
+      </div>
+      <div class="mt-6 text-xs text-[#00ff00] opacity-40 font-mono">
+        <p>[ SYSTEM_STATUS: OPERATIONAL ]</p>
+        <p>[ SIGNAL_INTEGRITY: NOMINAL ]</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- anime.js -->
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+
+  <!-- Configuration -->
+  <script src="assets/js/config.js"></script>
+
+  <!-- Animations -->
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>
