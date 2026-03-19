@@ -336,7 +336,7 @@ function enhanceScanline() {
 
   anime({
     targets: scanline,
-    opacity: [0.1, 0.2, 0.1],
+    opacity: [0.03, 0.07, 0.03],
     duration: 5000,
     easing: 'easeInOutSine',
     loop: true
@@ -408,10 +408,10 @@ function createProjectCardsAnimation() {
     card.addEventListener('mouseenter', () => {
       anime({
         targets: card,
-        scale: 1.02,
+        scale: 1.005,
         boxShadow: [
-          '0 0 10px rgba(0, 255, 0, 0.1)',
-          '0 0 30px rgba(0, 255, 0, 0.3)'
+          '0 0 8px rgba(0, 255, 0, 0.08)',
+          '0 0 18px rgba(0, 255, 0, 0.14)'
         ],
         duration: 300,
         easing: 'easeOutQuad'
@@ -423,8 +423,8 @@ function createProjectCardsAnimation() {
         targets: card,
         scale: 1,
         boxShadow: [
-          '0 0 30px rgba(0, 255, 0, 0.3)',
-          '0 0 10px rgba(0, 255, 0, 0.1)'
+          '0 0 18px rgba(0, 255, 0, 0.14)',
+          '0 0 8px rgba(0, 255, 0, 0.08)'
         ],
         duration: 300,
         easing: 'easeOutQuad'
@@ -589,7 +589,7 @@ function createBackgroundPulse() {
 
   anime({
     targets: background,
-    opacity: [0.15, 0.25, 0.15],
+    opacity: [0.08, 0.14, 0.08],
     duration: 8000,
     easing: 'easeInOutQuad',
     loop: true
@@ -699,5 +699,5 @@ document.addEventListener('DOMContentLoaded', () => {
   // Log initialization
   console.log('%c未完成成果物研究所 (aka. 未成研)', 'color: #00ff00; font-size: 20px; font-family: monospace;');
   console.log('%cIncomplete-Outputs-Lab Landing Page Initialized', 'color: #00ff00; font-family: monospace;');
-  console.log('%cNon-profit Technical Community', 'color: #cccccc; font-family: monospace;');
+  console.log('%cIndependent R&D team', 'color: #cccccc; font-family: monospace;');
 });

@@ -23,13 +23,13 @@
   pointer-events: none;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.15) 1px,
+    rgba(0, 0, 0, 0.06),
+    rgba(0, 0, 0, 0.06) 1px,
     transparent 1px,
     transparent 2px
   );
-  animation: scanline-move 8s linear infinite;
-  opacity: 0.1;
+  animation: scanline-move 14s linear infinite;
+  opacity: 0.04;
 }
 
 @keyframes scanline-move {
@@ -37,7 +37,7 @@
     transform: translateY(0);
   }
   100% {
-    transform: translateY(4px);
+    transform: translateY(2px);
   }
 }
 
@@ -45,11 +45,9 @@
 .terminal-glow {
   color: var(--terminal-green);
   text-shadow:
-    0 0 5px var(--terminal-green),
-    0 0 10px var(--terminal-green),
-    0 0 15px var(--terminal-green),
-    0 0 20px var(--terminal-green);
-  animation: flicker 8s infinite;
+    0 0 2px rgba(0, 255, 0, 0.35),
+    0 0 8px rgba(0, 255, 0, 0.2);
+  animation: flicker 12s infinite;
 }
 
 @keyframes flicker {
@@ -57,10 +55,10 @@
     opacity: 1;
   }
   50% {
-    opacity: 0.95;
+    opacity: 0.98;
   }
   75% {
-    opacity: 0.98;
+    opacity: 0.99;
   }
 }
 
@@ -75,11 +73,11 @@
 }
 
 .terminal-border:hover {
-  border-color: rgba(0, 255, 0, 0.5);
+  border-color: rgba(0, 255, 0, 0.45);
   box-shadow:
-    0 0 20px rgba(0, 255, 0, 0.2),
-    inset 0 0 15px rgba(0, 255, 0, 0.1);
-  transform: translateY(-5px);
+    0 0 14px rgba(0, 255, 0, 0.12),
+    inset 0 0 10px rgba(0, 255, 0, 0.06);
+  transform: translateY(-2px);
 }
 
 /* Project Card 3D Hover Effect */
@@ -90,7 +88,7 @@
 }
 
 .project-card:hover {
-  transform: translateY(-10px) rotateX(2deg);
+  transform: translateY(-4px) rotateX(0.5deg);
 }
 
 /* Member Card Effect */
@@ -99,8 +97,8 @@
 }
 
 .member-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(0, 255, 0, 0.6);
+  transform: translateY(-2px);
+  border-color: rgba(0, 255, 0, 0.45);
 }
 
 /* GitHub Icon Hover Effect */
@@ -265,39 +263,27 @@ a[title="View on GitHub"]:hover svg {
 /* Enhanced Glitch for Title */
 .glitch-title {
   position: relative;
-  animation: title-glitch 5s infinite;
+  animation: title-glitch 14s infinite;
 }
 
 @keyframes title-glitch {
-  0%, 90%, 100% {
+  0%, 97%, 100% {
     transform: translate(0);
     text-shadow:
-      0 0 5px var(--terminal-green),
-      0 0 10px var(--terminal-green),
-      0 0 15px var(--terminal-green),
-      0 0 20px var(--terminal-green);
+      0 0 2px rgba(0, 255, 0, 0.35),
+      0 0 8px rgba(0, 255, 0, 0.2);
   }
-  91% {
-    transform: translate(-3px, 2px);
+  98% {
+    transform: translate(-1px, 1px);
     text-shadow:
-      2px 0 var(--terminal-green),
-      -2px 0 #ff00ff,
-      0 0 20px var(--terminal-green);
+      1px 0 rgba(0, 255, 0, 0.4),
+      -1px 0 rgba(0, 255, 0, 0.15);
   }
-  92% {
-    transform: translate(2px, -2px);
-    text-shadow:
-      -2px 0 var(--terminal-green),
-      2px 0 #00ffff,
-      0 0 20px var(--terminal-green);
-  }
-  93% {
+  99% {
     transform: translate(0);
     text-shadow:
-      0 0 5px var(--terminal-green),
-      0 0 10px var(--terminal-green),
-      0 0 15px var(--terminal-green),
-      0 0 20px var(--terminal-green);
+      0 0 2px rgba(0, 255, 0, 0.35),
+      0 0 8px rgba(0, 255, 0, 0.2);
   }
 }
 
@@ -351,7 +337,7 @@ a[title="View on GitHub"]:hover svg {
 
   .scanline-overlay {
     animation: none;
-    opacity: 0.05;
+    opacity: 0.03;
   }
 
   .terminal-glow {
@@ -363,9 +349,8 @@ a[title="View on GitHub"]:hover svg {
 @media (max-width: 640px) {
   .terminal-glow {
     text-shadow:
-      0 0 3px var(--terminal-green),
-      0 0 6px var(--terminal-green),
-      0 0 9px var(--terminal-green);
+      0 0 2px rgba(0, 255, 0, 0.3),
+      0 0 6px rgba(0, 255, 0, 0.18);
   }
 
   .waveform-monitor path,

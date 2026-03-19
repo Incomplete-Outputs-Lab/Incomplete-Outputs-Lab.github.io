@@ -32,10 +32,19 @@ const PROJECTS = [
     githubUrl: 'https://github.com/Incomplete-Outputs-Lab/stream-monitor'
   },
   {
-    name: 'vMix-Control-Series',
-    fullName: 'Embedded Interface Units',
+    name: 'bi-kanpe',
+    fullName: 'Bi-directional cue / teleprompter app',
+    status: '[ PHASE: ACTIVE ]',
+    description: '双方向カンペアプリ。現場のニーズに応える柔軟性の高い無料カンペアプリ。',
+    techStack: ['Rust', 'Tauri', 'TypeScript', 'WebSocket', 'StreamDeck'],
+    type: 'software',
+    githubUrl: 'https://github.com/Incomplete-Outputs-Lab/bi-kanpe'
+  },
+  {
+    name: 'Iryx',
+    fullName: 'IP control panels for broadcast software',
     status: '[ PHASE: R&D ]',
-    description: 'Raspberry Pi 5 / Pico をベースとした、放送用ソフトウェア vMix 専用のハードウェア・コントローラー群。Embassy (Rust for embedded) を活用し、超低遅延なレスポンスを実現。基板設計からファームウェアまで一貫した自社開発。',
+    description: '放送用ソフトウェア専用 IPコントロールパネル群。Embassy (Rust for embedded) を活用し、超低遅延なレスポンスを実現。基板設計からファームウェアまで一貫した自社開発。現在、vMix専用コントローラーを開発中。',
     techStack: ['Rust (Embassy)', 'Raspberry Pi 5/Pico', 'KiCad', 'NDI SDK'],
     type: 'hardware',
     lineup: [
@@ -57,6 +66,15 @@ const MEMBERS = [
     socials: {
       x: 'https://x.com/miseinul'
     }
+  },
+  {
+    name: 'Shugo "Flowing" Kawamura',
+    role: 'vmix-utility 開発者',
+    focus: ['Backend', 'Frontend', 'Hardware', 'Desktop Application'],
+    description: 'vmix-utility の開発者。バックエンド、フロントエンド、ハードウェア開発からデスクトップアプリの開発まで幅広く手がける。',
+    socials: {
+      github: 'https://github.com/FlowingSPDG/'
+    }
   }
 ];
 
@@ -65,9 +83,9 @@ const ORGANIZATION_IDENTITY = {
   name_ja: '未完成成果物研究所',
   name_ja_short: '未成研',
   name_en: 'Incomplete-Outputs-Lab',
-  tagline_en: 'Non-profit Technical Community / Independent R&D Team',
+  tagline_en: 'Independent R&D Team / Broadcast production tooling',
   tagline_ja: 'Active Professionals\' Guild',
-  about: '未完成成果物研究所は、未成が主導する配信プロダクション向け各種ツール・ハードウェア機材の研究開発チームです。2026年1月現在、全メンバーが兼業であり、メインの業務がある傍ら未成研の研究開発を非営利で行っています。'
+  about: '未完成成果物研究所は、未成が主導する配信プロダクション向け各種ツール・ハードウェア機材の研究開発チームです。2026年1月現在、全メンバーが兼業であり、メインの業務がある傍ら未成研で研究開発を行っています。'
 };
 
 // Animation Configuration
@@ -76,7 +94,7 @@ const ANIM_CONFIG = {
   waveform_points: 100,
   background_paths: 5,
   background_points: 50,
-  glitch_probability: 0.05,
+  glitch_probability: 0.02,
   glitch_interval: 100,
   scanline_speed: 8000,
   pcb_trace_speed: 4000,

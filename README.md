@@ -1,14 +1,14 @@
 # 未完成成果物研究所 Landing Page
 
-Minimalist CRT-inspired landing page for Incomplete-Outputs-Lab featuring SVG animations powered by anime.js.
+Dark, broadcast-tech landing page for Incomplete-Outputs-Lab with subtle scanline accents and SVG animations powered by anime.js.
 
 ## Overview
 
-This is the official landing page for **未完成成果物研究所 (Incomplete-Outputs-Lab)**, a non-profit technical community and independent R&D team focused on broadcast production tools and hardware development.
+This is the official landing page for **未完成成果物研究所 (Incomplete-Outputs-Lab)**, an independent R&D team focused on broadcast production tools and hardware development.
 
 ### Key Features
 
-- **CRT Terminal Aesthetic**: Scanline effects, terminal green color scheme, and monospace typography
+- **Broadcast-tech aesthetic**: Dark theme, green accent, monospace typography, light scanline overlay
 - **Dynamic SVG Animations**: Background waveforms, oscilloscope-style monitors, and PCB circuit visualizations
 - **Responsive Design**: Mobile-first approach with optimized layouts for all screen sizes
 - **Performance Optimized**: GPU-accelerated animations, debounced resize handlers, and efficient SVG rendering
@@ -53,8 +53,16 @@ This is the official landing page for **未完成成果物研究所 (Incomplete-
 - Visualization: Waveform monitor
 - Stack: Rust, React, Tauri, DuckDB, Webhooks
 
-### 3. vMix-Control-Series
-**Embedded Interface Units**
+### 3. bi-kanpe
+**Bi-directional cue / teleprompter app**
+- Type: Software
+- Status: Active
+- Visualization: Project card (live badge)
+- Stack: Rust, Tauri, TypeScript, WebSocket, StreamDeck
+- Repository: [Incomplete-Outputs-Lab/bi-kanpe](https://github.com/Incomplete-Outputs-Lab/bi-kanpe)
+
+### 4. Iryx
+**IP control panels for broadcast software**
 - Type: Hardware
 - Status: R&D
 - Visualization: PCB circuit board animation
@@ -129,7 +137,7 @@ Edit `assets/js/config.js` in the `ANIM_CONFIG` object:
 const ANIM_CONFIG = {
   waveform_duration: 3000,        // Background waveform speed (ms)
   pcb_trace_speed: 4000,          // PCB signal flow speed (ms)
-  glitch_probability: 0.05,       // Glitch frequency (0-1)
+  glitch_probability: 0.02,       // Glitch frequency (0-1)
   scanline_speed: 8000            // Scanline animation speed (ms)
 };
 ```
@@ -142,7 +150,7 @@ Edit `assets/js/config.js` in the `ORGANIZATION_IDENTITY` object:
 const ORGANIZATION_IDENTITY = {
   name_ja: '未完成成果物研究所',
   name_en: 'Incomplete-Outputs-Lab',
-  tagline_en: 'Non-profit Technical Community / Independent R&D Team',
+  tagline_en: 'Independent R&D Team / Broadcast production tooling',
   // ... other fields
 };
 ```
@@ -251,7 +259,6 @@ This landing page is maintained by 未完成成果物研究所 (Incomplete-Outpu
 ## Organization Identity
 
 **未完成成果物研究所 (Incomplete-Outputs-Lab)**
-- Non-profit Technical Community
 - Independent R&D Team
 - Active Professionals' Guild
 - Not a company organization

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="未完成成果物研究所 - Non-profit Technical Community / Independent R&D Team">
+  <meta name="description" content="未完成成果物研究所 — Independent R&D team for broadcast production tools and hardware">
   <title>未完成成果物研究所 | Incomplete-Outputs-Lab</title>
 
   <!-- IBM Plex Mono Font -->
@@ -30,7 +30,7 @@
   <div id="scanline-overlay" class="scanline-overlay"></div>
 
   <!-- Background Waveforms -->
-  <div id="background-visual" class="fixed inset-0 -z-10 opacity-20">
+  <div id="background-visual" class="fixed inset-0 -z-10 opacity-10">
     <svg id="waveform-svg" class="w-full h-full"></svg>
   </div>
 
@@ -40,7 +40,7 @@
       <h1 class="text-4xl md:text-6xl terminal-glow font-semibold glitch-title">未完成成果物研究所</h1>
       <p class="text-xs md:text-sm text-[#cccccc] opacity-60 mt-2 fade-in-element">aka. 未成研</p>
       <p class="text-sm md:text-base text-[#00ff00] mt-4 fade-in-element">Incomplete-Outputs-Lab</p>
-      <p class="text-xs md:text-sm text-[#cccccc] opacity-70 mt-1 fade-in-element">Non-profit Technical Community / Independent R&D Team</p>
+      <p class="text-xs md:text-sm text-[#cccccc] opacity-70 mt-1 fade-in-element">Independent R&D Team / Broadcast production tooling</p>
       <p class="text-xs md:text-sm text-[#cccccc] opacity-70 fade-in-element">Active Professionals' Guild</p>
 
       <!-- GitHub Organization Link -->
@@ -58,7 +58,7 @@
     <section id="about" class="container mx-auto px-4 py-12 md:py-20">
       <h2 class="text-xl md:text-2xl mb-6 text-[#00ff00]">[ ABOUT ]</h2>
       <p class="text-sm md:text-base leading-relaxed max-w-3xl">
-        未完成成果物研究所は、未成が主導する配信プロダクション向け各種ツール・ハードウェア機材の研究開発チームです。2026年1月現在、全メンバーが兼業であり、メインの業務がある傍ら未成研の研究開発を非営利で行っています。
+        未完成成果物研究所は、未成が主導する配信プロダクション向け各種ツール・ハードウェア機材の研究開発チームです。2026年1月現在、全メンバーが兼業であり、メインの業務がある傍ら未成研で研究開発を行っています。
       </p>
       <p class="text-xs md:text-sm text-[#00ff00] mt-4 opacity-80">
         ※ 未成研は会社組織ではありません。独立した技術者集団として運営されています。
@@ -138,22 +138,55 @@
           </div>
         </article>
 
-        <!-- Project Card: vMix-Control-Series (Hardware) -->
+        <!-- Project Card: bi-kanpe -->
         <article class="terminal-border p-6 flex flex-col project-card">
           <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-            <h3 class="text-lg font-semibold text-[#00ff00]">vMix-Control-Series</h3>
+            <h3 class="text-lg font-semibold text-[#00ff00]">bi-kanpe</h3>
+            <span class="status-badge">[ PHASE: ACTIVE ]</span>
+          </div>
+
+          <div class="flex items-center gap-2 mb-4">
+            <p class="text-xs text-[#cccccc] opacity-60">Bi-directional cue / teleprompter app</p>
+            <a href="https://github.com/Incomplete-Outputs-Lab/bi-kanpe" target="_blank" rel="noopener noreferrer" class="ml-auto flex items-center gap-1 text-[#00ff00] hover:text-[#00ff00] transition-all hover:scale-110" title="View on GitHub">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="coming-soon-display h-48 md:h-56 mt-2 mb-4 flex-shrink-0 flex items-center justify-center">
+            <span class="text-2xl text-[#00ff00] terminal-glow">LIVE</span>
+          </div>
+
+          <p class="text-sm leading-relaxed mb-4 flex-grow">
+            双方向カンペアプリ。現場のニーズに応える柔軟性の高い無料カンペアプリ。
+          </p>
+
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="tech-tag">Rust</span>
+            <span class="tech-tag">Tauri</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">WebSocket</span>
+            <span class="tech-tag">StreamDeck</span>
+          </div>
+        </article>
+
+        <!-- Project Card: Iryx (Hardware) -->
+        <article class="terminal-border p-6 flex flex-col project-card">
+          <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+            <h3 class="text-lg font-semibold text-[#00ff00]">Iryx</h3>
             <span class="status-badge">[ PHASE: R&D ]</span>
           </div>
 
-          <p class="text-xs text-[#cccccc] opacity-60 mb-4">Embedded Interface Units</p>
+          <p class="text-xs text-[#cccccc] opacity-60 mb-4">IP control panels for broadcast software</p>
 
           <!-- PCB Circuit Animation -->
-          <div class="pcb-circuit h-48 md:h-56 mt-2 mb-4 flex-shrink-0" data-project="vmix">
+          <div class="pcb-circuit h-48 md:h-56 mt-2 mb-4 flex-shrink-0" data-project="iryx">
             <svg class="w-full h-full"></svg>
           </div>
 
           <p class="text-sm leading-relaxed mb-3 flex-grow">
-            Raspberry Pi 5 / Pico をベースとした、放送用ソフトウェア vMix 専用のハードウェア・コントローラー群。Embassy (Rust for embedded) を活用し、超低遅延なレスポンスを実現。基板設計からファームウェアまで一貫した自社開発。
+            放送用ソフトウェア専用 IPコントロールパネル群。Embassy (Rust for embedded) を活用し、超低遅延なレスポンスを実現。基板設計からファームウェアまで一貫した自社開発。現在、vMix専用コントローラーを開発中。
           </p>
 
           <!-- Lineup -->
@@ -226,6 +259,51 @@
             </div>
           </div>
         </article>
+
+        <!-- Member Card: Shugo Kawamura -->
+        <article class="terminal-border p-6 md:p-8 member-card">
+          <div class="flex flex-col md:flex-row gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-24 h-24 border-2 border-[#00ff00] flex items-center justify-center terminal-glow">
+                <span class="text-4xl text-[#00ff00]">F</span>
+              </div>
+            </div>
+
+            <div class="flex-grow">
+              <div class="mb-4">
+                <h3 class="text-2xl font-semibold text-[#00ff00] mb-1">Shugo &quot;Flowing&quot; Kawamura</h3>
+                <p class="text-sm text-[#cccccc] opacity-70 mb-3">vmix-utility 開発者</p>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="text-xs text-[#00ff00] uppercase tracking-wider mb-2">Focus</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span class="tech-tag">Backend</span>
+                  <span class="tech-tag">Frontend</span>
+                  <span class="tech-tag">Hardware</span>
+                  <span class="tech-tag">Desktop Application</span>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <h4 class="text-xs text-[#00ff00] uppercase tracking-wider mb-2">Description</h4>
+                <p class="text-sm leading-relaxed text-[#cccccc]">
+                  vmix-utility の開発者。バックエンド、フロントエンド、ハードウェア開発からデスクトップアプリの開発まで幅広く手がける。
+                </p>
+              </div>
+
+              <div>
+                <h4 class="text-xs text-[#00ff00] uppercase tracking-wider mb-2">Socials</h4>
+                <a href="https://github.com/FlowingSPDG/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-[#cccccc] hover:text-[#00ff00] transition-colors">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-sm">github.com/FlowingSPDG</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -264,7 +342,7 @@
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <p class="text-sm text-[#cccccc]">未完成成果物研究所 / Incomplete-Outputs-Lab</p>
-          <p class="text-xs text-[#cccccc] opacity-60 mt-1">Non-profit Technical Community</p>
+          <p class="text-xs text-[#cccccc] opacity-60 mt-1">Independent R&D team</p>
           <p class="text-xs text-[#cccccc] opacity-60">Active Professionals' Guild</p>
         </div>
         <div class="text-xs text-[#cccccc] opacity-60">
