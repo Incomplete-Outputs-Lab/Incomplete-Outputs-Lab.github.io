@@ -1,412 +1,258 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="未完成成果物研究所 — Independent R&D team for broadcast production tools and hardware">
-  <title>未完成成果物研究所 | Incomplete-Outputs-Lab</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>未完成成果物研究所 | Incomplete Outputs Lab</title>
+    <meta
+      name="description"
+      content="配信プロダクション向けツールおよびハードウェア機材の研究開発を行う技術者コミュニティ。vMix、ATEM、NDI など現場最適化のためのツール群を開発しています。"
+    />
+    <meta property="og:title" content="未完成成果物研究所 | Incomplete Outputs Lab" />
+    <meta
+      property="og:description"
+      content="配信プロダクション向けツールおよびハードウェア機材の研究開発を行う技術者コミュニティ。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-zinc-950"
+      >メインコンテンツへスキップ</a
+    >
+    <site-header data-current="home"></site-header>
 
-  <!-- IBM Plex Mono Font -->
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS v4 Play CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/custom.css">
-
-  <!-- Tailwind Custom Theme -->
-  <style type="text/tailwindcss">
-    @theme {
-      --color-terminal-green: #00ff00;
-      --color-terminal-bg: #000000;
-      --color-terminal-text: #cccccc;
-      --font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
-    }
-  </style>
-</head>
-<body class="bg-black text-[#cccccc] font-mono overflow-x-hidden">
-  <!-- Scanline Overlay -->
-  <div id="scanline-overlay" class="scanline-overlay"></div>
-
-  <!-- Background Waveforms -->
-  <div id="background-visual" class="fixed inset-0 -z-10 opacity-10">
-    <svg id="waveform-svg" class="w-full h-full"></svg>
-  </div>
-
-  <main class="relative z-10">
-    <!-- Header -->
-    <header class="container mx-auto px-4 py-8 md:py-16" id="hero-header">
-      <h1 class="text-4xl md:text-6xl terminal-glow font-semibold glitch-title">未完成成果物研究所</h1>
-      <p class="text-xs md:text-sm text-[#cccccc] opacity-60 mt-2 fade-in-element">aka. 未成研</p>
-      <p class="text-sm md:text-base text-[#00ff00] mt-4 fade-in-element">Incomplete-Outputs-Lab</p>
-      <p class="text-xs md:text-sm text-[#cccccc] opacity-70 mt-1 fade-in-element">Independent R&D Team / Broadcast production tooling</p>
-      <p class="text-xs md:text-sm text-[#cccccc] opacity-70 fade-in-element">Active Professionals' Guild</p>
-
-      <!-- GitHub Organization Link -->
-      <div class="mt-6 fade-in-element">
-        <a href="https://github.com/Incomplete-Outputs-Lab" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-[#00ff00] hover:underline transition-all">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-          </svg>
-          <span class="text-sm">github.com/Incomplete-Outputs-Lab</span>
-        </a>
-      </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="container mx-auto px-4 py-12 md:py-20">
-      <h2 class="text-xl md:text-2xl mb-6 text-[#00ff00]">[ ABOUT ]</h2>
-      <p class="text-sm md:text-base leading-relaxed max-w-3xl">
-        未完成成果物研究所は、未成が主導する配信プロダクション向け各種ツール・ハードウェア機材の研究開発チームです。2026年1月現在、全メンバーが兼業であり、メインの業務がある傍ら未成研で研究開発を行っています。
-      </p>
-      <p class="text-xs md:text-sm text-[#00ff00] mt-4 opacity-80">
-        ※ 未成研は会社組織ではありません。独立した技術者集団として運営されています。
-      </p>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="container mx-auto px-4 py-12 md:py-20">
-      <h2 class="text-xl md:text-2xl mb-8 text-[#00ff00]">[ PROJECTS ]</h2>
-
-      <div class="space-y-12">
-        <!-- Software -->
-        <div>
-          <h3 class="text-lg md:text-xl mb-6 text-[#00ff00]">[ SOFTWARE ]</h3>
-          <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
-            <!-- Project Card: bi-kanpe -->
-            <article class="terminal-border p-6 flex flex-col project-card">
-              <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                <h3 class="text-lg font-semibold text-[#00ff00]">bi-kanpe</h3>
-                <span class="status-badge">[ PHASE: ACTIVE ]</span>
-              </div>
-
-              <div class="flex items-center gap-2 mb-4">
-                <p class="text-xs text-[#cccccc] opacity-60">Bi-directional cue / teleprompter app</p>
-                <a href="https://github.com/Incomplete-Outputs-Lab/bi-kanpe" target="_blank" rel="noopener noreferrer" class="ml-auto flex items-center gap-1 text-[#00ff00] hover:text-[#00ff00] transition-all hover:scale-110" title="View on GitHub">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-                  </svg>
-                </a>
-              </div>
-
-              <div class="coming-soon-display h-48 md:h-56 mt-2 mb-4 flex-shrink-0 flex items-center justify-center">
-                <span class="text-2xl text-[#00ff00] terminal-glow">LIVE</span>
-              </div>
-
-              <p class="text-sm leading-relaxed mb-4 flex-grow">
-                双方向カンペアプリ。現場のニーズに応える柔軟性の高い無料カンペアプリ。
-              </p>
-
-              <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="tech-tag">Rust</span>
-                <span class="tech-tag">Tauri</span>
-                <span class="tech-tag">TypeScript</span>
-                <span class="tech-tag">WebSocket</span>
-                <span class="tech-tag">StreamDeck</span>
-              </div>
-            </article>
-
-            <!-- Project Card: vmix-utility -->
-            <article class="terminal-border p-6 flex flex-col project-card">
-              <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                <h3 class="text-lg font-semibold text-[#00ff00]">vmix-utility</h3>
-                <span class="status-badge">[ PHASE: ACTIVE ]</span>
-              </div>
-
-              <div class="flex items-center gap-2 mb-4">
-                <p class="text-xs text-[#cccccc] opacity-60">vMix Management Utility</p>
-                <a href="https://github.com/Incomplete-Outputs-Lab/vmix-utility" target="_blank" rel="noopener noreferrer" class="ml-auto flex items-center gap-1 text-[#00ff00] hover:text-[#00ff00] transition-all hover:scale-110" title="View on GitHub">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-                  </svg>
-                </a>
-              </div>
-
-              <div class="coming-soon-display h-48 md:h-56 mt-2 mb-4 flex-shrink-0 flex items-center justify-center">
-                <span class="text-2xl text-[#00ff00] terminal-glow">LIVE</span>
-              </div>
-
-              <p class="text-sm leading-relaxed mb-4 flex-grow">
-                vMix接続と操作を管理するデスクトップアプリケーション。Tauri（Rust + React）で構築。
-              </p>
-
-              <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="tech-tag">Rust</span>
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Tauri</span>
-                <span class="tech-tag">TypeScript</span>
-              </div>
-            </article>
-
-            <!-- Project Card: obs-sync -->
-            <article class="terminal-border p-6 flex flex-col project-card">
-              <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                <h3 class="text-lg font-semibold text-[#00ff00]">obs-sync</h3>
-                <span class="status-badge">[ PHASE: UNDER DEVELOPMENT ]</span>
-              </div>
-
-              <div class="flex items-center gap-2 mb-4">
-                <p class="text-xs text-[#cccccc] opacity-60">Distributed OBS Synchronization System</p>
-                <a href="https://github.com/Incomplete-Outputs-Lab/obs-sync" target="_blank" rel="noopener noreferrer" class="ml-auto flex items-center gap-1 text-[#00ff00] hover:text-[#00ff00] transition-all hover:scale-110" title="View on GitHub">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-                  </svg>
-                </a>
-              </div>
-
-              <div class="coming-soon-display h-48 md:h-56 mt-2 mb-4 flex-shrink-0 flex items-center justify-center">
-                <span class="text-2xl text-[#00ff00] terminal-glow">COMING SOON</span>
-              </div>
-
-              <p class="text-sm leading-relaxed mb-4 flex-grow">
-                中〜大規模配信現場における、マルチインスタンスOBSの完全同期ソリューション。マスター/スレーブ構成による設定値のリアルタイム・ミラーリング。スレーブ側での予期せぬ変更を即座に検知し、インシデントを未然に防ぐ。
-              </p>
-
-              <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="tech-tag">Rust</span>
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Tauri</span>
-                <span class="tech-tag">WebSocket</span>
-                <span class="tech-tag">obs-websocket</span>
-              </div>
-            </article>
-
-            <!-- Project Card: stream-monitor -->
-            <article class="terminal-border p-6 flex flex-col project-card">
-              <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                <h3 class="text-lg font-semibold text-[#00ff00]">stream-monitor</h3>
-                <span class="status-badge">[ PHASE: UNDER DEVELOPMENT ]</span>
-              </div>
-
-              <div class="flex items-center gap-2 mb-4">
-                <p class="text-xs text-[#cccccc] opacity-60">Broadcast Statistics Analyzer</p>
-                <a href="https://github.com/Incomplete-Outputs-Lab/stream-monitor" target="_blank" rel="noopener noreferrer" class="ml-auto flex items-center gap-1 text-[#00ff00] hover:text-[#00ff00] transition-all hover:scale-110" title="View on GitHub">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-                  </svg>
-                </a>
-              </div>
-
-              <div class="coming-soon-display h-48 md:h-56 mt-2 mb-4 flex-shrink-0 flex items-center justify-center">
-                <span class="text-2xl text-[#00ff00] terminal-glow">COMING SOON</span>
-              </div>
-
-              <p class="text-sm leading-relaxed mb-4 flex-grow">
-                配信データと視聴者体験を数値化する、エッジ動作型のアナリティクスエンジン。マルチビュー監視と並行し、コメント密度や視聴者情報をAPI経由で集積。DuckDB を採用したエッジDBにより、数百万件の統計データから盛り上がりの瞬間を即座に抽出。
-              </p>
-
-              <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="tech-tag">Rust</span>
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Tauri</span>
-                <span class="tech-tag">DuckDB</span>
-                <span class="tech-tag">Webhooks</span>
-              </div>
-            </article>
+    <main id="main">
+      <section
+        class="relative overflow-hidden border-b border-zinc-800 bg-gradient-to-b from-zinc-900/80 via-zinc-950 to-zinc-950 px-4 pb-20 pt-16 md:pb-28 md:pt-24"
+        aria-labelledby="hero-heading"
+      >
+        <div
+          class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(34,211,238,0.12),transparent)]"
+          aria-hidden="true"
+        ></div>
+        <div class="relative mx-auto max-w-6xl">
+          <p class="text-xs font-medium uppercase tracking-[0.25em] text-cyan-400/90">Broadcast · Stream · Engineering</p>
+          <h1 id="hero-heading" class="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-6xl">
+            未完成成果物研究所
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
+            未完成成果物研究所は、配信プロダクション向けツールとハードウェア機材の研究開発を行う技術者コミュニティです。
+          </p>
+          <div class="mt-10 flex flex-wrap gap-3">
+            <a
+              href="products.html"
+              class="inline-flex items-center justify-center rounded-xl bg-cyan-500 px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+              >製品を見る</a
+            >
+            <a
+              href="partners.html"
+              class="inline-flex items-center justify-center rounded-xl border border-zinc-600 bg-zinc-900/50 px-5 py-3 text-sm font-medium text-zinc-100 transition hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+              >パートナー・採用放送</a
+            >
           </div>
         </div>
+      </section>
 
-        <!-- Hardware -->
-        <div>
-          <h3 class="text-lg md:text-xl mb-6 text-[#00ff00]">[ HARDWARE ]</h3>
-          <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
-            <!-- Project Card: Iryx (Hardware) -->
-            <article class="terminal-border p-6 flex flex-col project-card">
-              <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                <h3 class="text-lg font-semibold text-[#00ff00]">Iryx</h3>
-                <span class="status-badge">[ PHASE: R&D ]</span>
-              </div>
+      <section class="mx-auto max-w-6xl px-4 py-20 md:py-28" aria-labelledby="about-heading">
+        <h2 id="about-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">About</h2>
+        <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">未完成成果物研究所について</p>
+        <div class="mt-8 space-y-6 text-base leading-relaxed text-zinc-400 md:text-lg">
+          <p>
+            未完成成果物研究所 は、配信プロダクション向けツールおよびハードウェア機材の研究開発を行う技術者コミュニティです。
+          </p>
+          <p>
+            「完成」の一歩手前にある、荒削りながらも本質的な課題解決を目的としています。2026年現在、全メンバーが放送・配信・IT業界の第一線で活動するプロフェッショナルであり、本業の傍ら、技術的探求と現場の最適化を目的として参画しています。
+          </p>
+        </div>
+      </section>
 
-              <p class="text-xs text-[#cccccc] opacity-60 mb-4">IP control panels for broadcast software</p>
-
-              <!-- PCB Circuit Animation -->
-              <div class="pcb-circuit h-48 md:h-56 mt-2 mb-4 flex-shrink-0" data-project="iryx">
-                <svg class="w-full h-full"></svg>
-              </div>
-
-              <p class="text-sm leading-relaxed mb-3 flex-grow">
-                放送用ソフトウェア専用 IPコントロールパネル群。Embassy (Rust for embedded) を活用し、超低遅延なレスポンスを実現。基板設計からファームウェアまで一貫した自社開発。現在、vMix専用コントローラーを開発中。
-              </p>
-
-              <!-- Lineup -->
-              <div class="mb-4 text-xs space-y-1">
-                <div><span class="text-[#00ff00]">▸ VMTALLY:</span> ハイブリッド・タリーシステム</div>
-                <div><span class="text-[#00ff00]">▸ VMReplay:</span> リプレイ特化インターフェース</div>
-                <div><span class="text-[#00ff00]">▸ VMSwitch:</span> スイッチング特化モデル</div>
-                <div><span class="text-[#00ff00]">▸ VMDeluxe:</span> 最上位機（NDIモニタリング）</div>
-              </div>
-
-              <div class="flex flex-wrap gap-2 mt-auto">
-                <span class="tech-tag">Rust (Embassy)</span>
-                <span class="tech-tag">RPi 5/Pico</span>
-                <span class="tech-tag">KiCad</span>
-                <span class="tech-tag">NDI SDK</span>
-              </div>
-            </article>
+      <section class="border-y border-zinc-800 bg-zinc-900/25 px-4 py-20 md:py-28" aria-labelledby="what-heading">
+        <div class="mx-auto max-w-6xl">
+          <h2 id="what-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">What we do</h2>
+          <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">取り組み</p>
+          <div class="mt-8 space-y-6 text-base leading-relaxed text-zinc-400 md:text-lg">
+            <p>
+              プロダクションの配信・番組オペレーションの支援をするツール群を開発しています。配信用ソフトのサポートツールや vMix / ATEM
+              の関連ハードウェアの開発、Stream Deck のプラグインや Companion プラグインの開発、NDI / OMT / SRT
+              関連の研究などを主に行なっています。
+            </p>
+            <p>
+              esports タイトルを含むゲームの API をグラフィカルに反映するテロップ・HUD ツールの受託開発も行っています。
+            </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Members Section -->
-    <section id="members" class="container mx-auto px-4 py-12 md:py-20">
-      <h2 class="text-xl md:text-2xl mb-8 text-[#00ff00]">[ MEMBERS ]</h2>
-
-      <div class="grid grid-cols-1 gap-6">
-        <!-- Member Card: Misei -->
-        <article class="terminal-border p-6 md:p-8 member-card">
-          <div class="flex flex-col md:flex-row gap-6">
-            <!-- Avatar -->
-            <div class="flex-shrink-0">
-              <div class="w-24 h-24 border-2 border-[#00ff00] flex items-center justify-center terminal-glow">
-                <span class="text-4xl text-[#00ff00]">M</span>
-              </div>
-            </div>
-
-            <!-- Profile Details -->
-            <div class="flex-grow">
-              <div class="mb-4">
-                <h3 class="text-2xl font-semibold text-[#00ff00] mb-1">未成 (Misei)</h3>
-                <p class="text-sm text-[#cccccc] opacity-70 mb-3">Founder / Lead Architect</p>
-              </div>
-
-              <div class="mb-4">
-                <h4 class="text-xs text-[#00ff00] uppercase tracking-wider mb-2">Focus</h4>
-                <div class="flex flex-wrap gap-2">
-                  <span class="tech-tag">Rust</span>
-                  <span class="tech-tag">Embedded Systems (Embassy)</span>
-                  <span class="tech-tag">Desktop Application</span>
-                  <span class="tech-tag">Distributed Systems</span>
-                  <span class="tech-tag">StreamDeck Plugins</span>
-                </div>
-              </div>
-
-              <div class="mb-4">
-                <h4 class="text-xs text-[#00ff00] uppercase tracking-wider mb-2">Description</h4>
-                <p class="text-sm leading-relaxed text-[#cccccc]">
-                  未完成成果物研究所の主宰。誰よりも未完成のプロジェクトが多い。配信現場の「不確実性」をコードで制御することに執着する。マイコンを用いたハードウェアからクラウドオーケストレーションまで、放送に関連する技術の全レイヤーを横断的に設計。
-                </p>
-              </div>
-
-              <div>
-                <h4 class="text-xs text-[#00ff00] uppercase tracking-wider mb-2">Socials</h4>
-                <a href="https://x.com/miseinul" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-[#cccccc] hover:text-[#00ff00] transition-colors">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                  </svg>
-                  <span class="text-sm">@miseinul</span>
-                </a>
-              </div>
-            </div>
+      <section class="border-b border-zinc-800 py-16 md:py-20" aria-labelledby="marquee-heading">
+        <div class="mx-auto max-w-6xl px-4">
+          <h2 id="marquee-heading" class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+            採用プロダクション
+          </h2>
+          <p class="mt-2 text-center text-sm text-zinc-400">私たちのツール・サービスを活用いただいている事例（一部）</p>
+        </div>
+        <div class="marquee-mask mt-10 overflow-hidden" role="presentation">
+          <div class="marquee-inner">
+            <ul class="flex items-center gap-3 px-2 md:gap-4" aria-label="採用プロダクション（スクロール）">
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社CyberE</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社CyberZ</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">RAGE esports</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社PinE</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">ミツイケミカル商事</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社プレイブレーン</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社ＪＣＧ</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社サードウェーブ</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">BreakingDown株式会社</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">TECH CHASE Inc.</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社TechnoBlood eSports</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">EastGeekSmash</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">Live on Three</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">FIVESCUP</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">その他各種教育機関</span></li>
+            </ul>
+            <ul class="marquee-duplicate flex items-center gap-3 px-2 md:gap-4" aria-hidden="true">
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社CyberE</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社CyberZ</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">RAGE esports</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社PinE</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">ミツイケミカル商事</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社プレイブレーン</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社ＪＣＧ</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社サードウェーブ</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">BreakingDown株式会社</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">TECH CHASE Inc.</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社TechnoBlood eSports</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">EastGeekSmash</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">Live on Three</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">FIVESCUP</span></li>
+              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">その他各種教育機関</span></li>
+            </ul>
           </div>
-        </article>
+        </div>
+        <p class="mt-8 text-center">
+          <a
+            href="partners.html"
+            class="text-sm font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+            >採用企業・コミュニティ一覧へ</a
+          >
+        </p>
+      </section>
 
-        <!-- Member Card: Shugo Kawamura -->
-        <article class="terminal-border p-6 md:p-8 member-card">
-          <div class="flex flex-col md:flex-row gap-6">
-            <div class="flex-shrink-0">
-              <div class="w-24 h-24 border-2 border-[#00ff00] flex items-center justify-center terminal-glow">
-                <span class="text-4xl text-[#00ff00]">F</span>
-              </div>
-            </div>
+      <section class="mx-auto max-w-6xl px-4 py-20 md:py-28" aria-labelledby="cases-heading">
+        <h2 id="cases-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">採用事例</h2>
+        <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">導入・活用のストーリー</p>
+        <p class="mt-4 max-w-2xl text-zinc-400">具体的な事例記事は準備中です。公開まで今しばらくお待ちください。</p>
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-hidden="true">
+          <div class="rounded-2xl border border-dashed border-zinc-700 bg-zinc-900/30 p-8 min-h-[140px]"></div>
+          <div class="rounded-2xl border border-dashed border-zinc-700 bg-zinc-900/30 p-8 min-h-[140px]"></div>
+          <div class="rounded-2xl border border-dashed border-zinc-700 bg-zinc-900/30 p-8 min-h-[140px] sm:col-span-2 lg:col-span-1"></div>
+        </div>
+      </section>
 
-            <div class="flex-grow">
-              <div class="mb-4">
-                <h3 class="text-2xl font-semibold text-[#00ff00] mb-1">Shugo &quot;Flowing&quot; Kawamura</h3>
-                <p class="text-sm text-[#cccccc] opacity-70 mb-3">vmix-utility 開発者</p>
-              </div>
-
-              <div class="mb-4">
-                <h4 class="text-xs text-[#00ff00] uppercase tracking-wider mb-2">Focus</h4>
-                <div class="flex flex-wrap gap-2">
-                  <span class="tech-tag">Backend</span>
-                  <span class="tech-tag">Frontend</span>
-                  <span class="tech-tag">Hardware</span>
-                  <span class="tech-tag">Desktop Application</span>
-                  <span class="tech-tag">StreamDeck Plugins</span>
-                </div>
-              </div>
-
-              <div class="mb-4">
-                <h4 class="text-xs text-[#00ff00] uppercase tracking-wider mb-2">Description</h4>
-                <p class="text-sm leading-relaxed text-[#cccccc]">
-                  vmix-utility の開発者。バックエンド、フロントエンド、ハードウェア開発からデスクトップアプリの開発まで幅広く手がける。
-                </p>
-              </div>
-
-              <div>
-                <h4 class="text-xs text-[#00ff00] uppercase tracking-wider mb-2">Socials</h4>
-                <a href="https://github.com/FlowingSPDG/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-[#cccccc] hover:text-[#00ff00] transition-colors">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-                  </svg>
-                  <span class="text-sm">github.com/FlowingSPDG</span>
-                </a>
-              </div>
-            </div>
+      <section class="border-t border-zinc-800 bg-zinc-900/20 px-4 py-20 md:py-28" aria-labelledby="voices-heading">
+        <div class="mx-auto max-w-6xl">
+          <h2 id="voices-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">ユーザーの声</h2>
+          <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">現場からのフィードバック</p>
+          <p class="mt-4 text-zinc-400">近日、コメント・推薦文を掲載予定です。</p>
+          <div class="mt-10 grid gap-6 md:grid-cols-2">
+            <figure class="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-8 min-h-[160px] flex flex-col justify-center">
+              <blockquote class="text-sm text-zinc-500">掲載準備中</blockquote>
+            </figure>
+            <figure class="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-8 min-h-[160px] flex flex-col justify-center">
+              <blockquote class="text-sm text-zinc-500">掲載準備中</blockquote>
+            </figure>
           </div>
-        </article>
-      </div>
-    </section>
+        </div>
+      </section>
 
-    <!-- Capabilities Section -->
-    <section id="capabilities" class="container mx-auto px-4 py-12 md:py-20">
-      <h2 class="text-xl md:text-2xl mb-8 text-[#00ff00]">[ CAPABILITIES ]</h2>
-
-      <div class="terminal-border p-6 md:p-8">
-        <ul class="space-y-4 text-sm md:text-base">
-          <li class="flex items-start capability-item">
-            <span class="text-[#00ff00] mr-3">▸</span>
-            <span>プロダクションソフトウェアの開発・制作（Windows/Mac/Linux）</span>
+      <section class="mx-auto max-w-6xl px-4 py-20 md:py-28" aria-labelledby="explore-heading">
+        <h2 id="explore-heading" class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">Explore</h2>
+        <p class="mt-3 text-center text-2xl font-semibold text-white md:text-3xl">コンテンツ一覧</p>
+        <ul class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <li>
+            <a
+              href="products.html"
+              class="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition hover:border-cyan-500/40 hover:bg-zinc-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+            >
+              <span class="text-xs font-medium uppercase tracking-widest text-cyan-400/90">Products</span>
+              <span class="mt-2 text-lg font-semibold text-white group-hover:text-cyan-200">製品</span>
+              <span class="mt-2 text-sm text-zinc-400">Iryx、ATEM Micro Control Panel など</span>
+            </a>
           </li>
-          <li class="flex items-start capability-item">
-            <span class="text-[#00ff00] mr-3">▸</span>
-            <span>StreamDeckプラグインの新規開発・改修</span>
+          <li>
+            <a
+              href="projects.html"
+              class="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition hover:border-cyan-500/40 hover:bg-zinc-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+            >
+              <span class="text-xs font-medium uppercase tracking-widest text-cyan-400/90">Projects</span>
+              <span class="mt-2 text-lg font-semibold text-white group-hover:text-cyan-200">プロジェクト</span>
+              <span class="mt-2 text-sm text-zinc-400">vmix-utility、bi-kanpe、obs-sync</span>
+            </a>
           </li>
-          <li class="flex items-start capability-item">
-            <span class="text-[#00ff00] mr-3">▸</span>
-            <span>companionプラグインの新規開発・改修</span>
+          <li>
+            <a
+              href="research.html"
+              class="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition hover:border-cyan-500/40 hover:bg-zinc-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+            >
+              <span class="text-xs font-medium uppercase tracking-widest text-cyan-400/90">Research</span>
+              <span class="mt-2 text-lg font-semibold text-white group-hover:text-cyan-200">研究</span>
+              <span class="mt-2 text-sm text-zinc-400">NDI、監視、ATEM オープンソースなど</span>
+            </a>
           </li>
-          <li class="flex items-start capability-item">
-            <span class="text-[#00ff00] mr-3">▸</span>
-            <span>組み込み機器の設計・実装</span>
+          <li>
+            <a
+              href="members.html"
+              class="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition hover:border-cyan-500/40 hover:bg-zinc-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+            >
+              <span class="text-xs font-medium uppercase tracking-widest text-cyan-400/90">Members</span>
+              <span class="mt-2 text-lg font-semibold text-white group-hover:text-cyan-200">メンバー</span>
+              <span class="mt-2 text-sm text-zinc-400">コアメンバーの紹介</span>
+            </a>
           </li>
-          <li class="flex items-start capability-item">
-            <span class="text-[#00ff00] mr-3">▸</span>
-            <span>NDI/SRT/OMT 関連ソフトウェアの開発</span>
+          <li>
+            <a
+              href="partners.html"
+              class="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition hover:border-cyan-500/40 hover:bg-zinc-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+            >
+              <span class="text-xs font-medium uppercase tracking-widest text-cyan-400/90">Partners</span>
+              <span class="mt-2 text-lg font-semibold text-white group-hover:text-cyan-200">パートナー</span>
+              <span class="mt-2 text-sm text-zinc-400">採用企業・主な採用放送</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="technology.html"
+              class="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition hover:border-cyan-500/40 hover:bg-zinc-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+            >
+              <span class="text-xs font-medium uppercase tracking-widest text-cyan-400/90">Technology</span>
+              <span class="mt-2 text-lg font-semibold text-white group-hover:text-cyan-200">技術スタック</span>
+              <span class="mt-2 text-sm text-zinc-400">機材・プロトコル・言語</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition hover:border-cyan-500/40 hover:bg-zinc-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+            >
+              <span class="text-xs font-medium uppercase tracking-widest text-cyan-400/90">Contact</span>
+              <span class="mt-2 text-lg font-semibold text-white group-hover:text-cyan-200">お問い合わせ</span>
+              <span class="mt-2 text-sm text-zinc-400">Discord・メール</span>
+            </a>
           </li>
         </ul>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="container mx-auto px-4 py-12 md:py-16 border-t border-[#00ff00] border-opacity-30 mt-20">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div>
-          <p class="text-sm text-[#cccccc]">未完成成果物研究所 / Incomplete-Outputs-Lab</p>
-          <p class="text-xs text-[#cccccc] opacity-60 mt-1">Independent R&D team</p>
-          <p class="text-xs text-[#cccccc] opacity-60">Active Professionals' Guild</p>
-        </div>
-        <div class="text-xs text-[#cccccc] opacity-60">
-          <p>※ 未成研は会社組織ではありません</p>
-          <p class="mt-1">全メンバーが本業を持つ兼業技術者集団です</p>
-        </div>
-      </div>
-      <div class="mt-6 text-xs text-[#00ff00] opacity-40 font-mono">
-        <p>[ SYSTEM_STATUS: OPERATIONAL ]</p>
-        <p>[ SIGNAL_INTEGRITY: NOMINAL ]</p>
-      </div>
-    </footer>
-  </main>
-
-  <!-- anime.js -->
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-
-  <!-- Configuration -->
-  <script src="assets/js/config.js"></script>
-
-  <!-- Animations -->
-  <script src="assets/js/animations.js"></script>
-</body>
+    <site-footer></site-footer>
+  </body>
 </html>

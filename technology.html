@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>技術スタック | 未完成成果物研究所</title>
+    <meta
+      name="description"
+      content="プロダクション機材、プロトコル、プログラミング言語など、未完成成果物研究所で採用している技術領域。"
+    />
+    <meta property="og:title" content="技術スタック | 未完成成果物研究所" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-zinc-950"
+      >メインコンテンツへスキップ</a
+    >
+    <site-header data-current="technology"></site-header>
+
+    <main id="main" class="mx-auto max-w-6xl px-4 py-12 md:py-16">
+      <header class="max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">Technology</p>
+        <h1 class="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">技術スタック・採用技術</h1>
+        <p class="mt-4 text-zinc-400">開発・研究で扱う機材、プロトコル、言語の一例です。</p>
+      </header>
+
+      <div class="mt-14 grid gap-12 lg:grid-cols-3">
+        <section aria-labelledby="gear-heading">
+          <h2 id="gear-heading" class="text-sm font-semibold uppercase tracking-widest text-cyan-400/90">プロダクション機材</h2>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">Viz/NewTek TriCaster</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">Viz/NewTek 3Play</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">Viz/Newtek NC</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">Panasonic Kairos</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">StudioCoast vMix</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">Blackmagic Design ATEM</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">OBS-Studio</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="protocol-heading">
+          <h2 id="protocol-heading" class="text-sm font-semibold uppercase tracking-widest text-cyan-400/90">プロトコル</h2>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">NDI</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">OMT</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">SRT</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">WebRTC</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">WHIP</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">RTMP</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">Websocket</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">HTTP/HTTPS</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">TCP/UDP</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="lang-heading">
+          <h2 id="lang-heading" class="text-sm font-semibold uppercase tracking-widest text-cyan-400/90">プログラミング言語</h2>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">Rust</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">Go</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">TypeScript/JavaScript</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">C#</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">Zig</li>
+            <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-xs text-zinc-300">Swift</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <site-footer></site-footer>
+  </body>
+</html>

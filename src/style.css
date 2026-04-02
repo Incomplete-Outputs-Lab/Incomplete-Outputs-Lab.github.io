@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply min-h-screen bg-zinc-950 text-zinc-100 antialiased font-sans;
+  }
+
+  ::selection {
+    @apply bg-cyan-500/30 text-white;
+  }
+}
+
+@layer utilities {
+  .marquee-mask {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+}
+
+.marquee-inner {
+  display: flex;
+  width: max-content;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .marquee-inner {
+    animation: lab-marquee 55s linear infinite;
+  }
+}
+
+@keyframes lab-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-inner {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100% !important;
+    max-width: 72rem;
+    margin-inline: auto;
+    justify-content: center;
+    row-gap: 0.75rem;
+    column-gap: 0.75rem;
+    transform: none !important;
+  }
+
+  .marquee-duplicate {
+    display: none;
+  }
+}
