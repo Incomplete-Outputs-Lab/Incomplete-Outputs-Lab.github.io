@@ -41,9 +41,19 @@ class SiteHeader extends HTMLElement {
     this.innerHTML = `
       <header class="fixed top-0 z-50 w-full border-b border-zinc-800/80 bg-zinc-950/90 backdrop-blur-md">
         <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:py-4">
-          <a href="/index.html" class="group flex flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 rounded-md">
-            <span class="text-sm font-semibold tracking-tight text-white group-hover:text-cyan-200 transition-colors">未完成成果物研究所</span>
-            <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Mikansei Laboratory</span>
+          <a href="/index.html" class="group flex items-center gap-2.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 rounded-md md:gap-3">
+            <img
+              src="/logo.png"
+              alt=""
+              width="512"
+              height="512"
+              class="h-8 w-8 shrink-0 object-contain md:h-9 md:w-9"
+              decoding="async"
+            />
+            <span class="flex min-w-0 flex-col">
+              <span class="text-sm font-semibold tracking-tight text-white group-hover:text-cyan-200 transition-colors">未完成成果物研究所</span>
+              <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Mikansei Laboratory</span>
+            </span>
           </a>
           <button
             type="button"
