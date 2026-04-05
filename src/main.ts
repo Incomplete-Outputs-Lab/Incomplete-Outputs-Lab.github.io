@@ -12,7 +12,7 @@ const NAV: { id: PageId; href: string; label: string }[] = [
   { id: "home", href: "/index.html", label: "ホーム" },
   { id: "products", href: "/products.html", label: "製品" },
   { id: "projects", href: "/projects.html", label: "プロジェクト" },
-  { id: "research", href: "/research.html", label: "研究" },
+  { id: "research", href: "/research.html", label: "リサーチ" },
   { id: "members", href: "/members.html", label: "メンバー" },
   { id: "partners", href: "/partners.html", label: "パートナー" },
   { id: "technology", href: "/technology.html", label: "技術" },

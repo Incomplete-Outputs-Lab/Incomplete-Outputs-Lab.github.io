@@ -53,6 +53,7 @@ export default defineConfig({
         projectVmixUtility: resolve(root, "projects/vmix-utility.html"),
         projectBiKanpe: resolve(root, "projects/bi-kanpe.html"),
         projectObsSync: resolve(root, "projects/obs-sync.html"),
+        projectProductiondeck: resolve(root, "projects/productiondeck.html"),
       },
     },
   },

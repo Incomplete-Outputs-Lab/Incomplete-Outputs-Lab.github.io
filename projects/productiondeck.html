@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>ProductionDeck | プロジェクト | 未完成成果物研究所</title>
+    <meta
+      name="description"
+      content="ProductionDeck はオープンソースの Stream Deck 互換ファームウェア。Raspberry Pi Pico（RP2040）向け。概要とリポジトリへのリンク。"
+    />
+    <meta property="og:title" content="ProductionDeck | 未完成成果物研究所" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-zinc-950"
+      >メインコンテンツへスキップ</a
+    >
+    <site-header data-current="projects"></site-header>
+
+    <main id="main" class="mx-auto max-w-3xl px-4 py-12 md:py-16">
+      <nav class="text-sm text-zinc-500" aria-label="パンくずリスト">
+        <a href="/index.html" class="text-cyan-400/90 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded">ホーム</a>
+        <span class="mx-2" aria-hidden="true">/</span>
+        <a href="/projects.html" class="text-cyan-400/90 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded">プロジェクト</a>
+        <span class="mx-2" aria-hidden="true">/</span>
+        <span class="text-zinc-400">ProductionDeck</span>
+      </nav>
+
+      <header class="mt-8">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">Project</p>
+        <h1 class="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">ProductionDeck</h1>
+        <p class="mt-4 text-zinc-400">Stream Deck 互換のオープンソースファームウェア（RP2040）</p>
+      </header>
+
+      <div class="mt-12 space-y-12 text-base leading-relaxed text-zinc-400 md:text-lg">
+        <section aria-labelledby="pd-overview">
+          <h2 id="pd-overview" class="text-lg font-semibold text-white">概要</h2>
+          <p class="mt-4">
+            ProductionDeck は、Elgato Stream Deck と互換性のある動作を目指したオープンソースのファームウェアです。Raspberry Pi Pico など
+            RP2040 ベースのボード向けにビルドでき、独自ハードウェアや既存の Stream Deck 向けアプリ・連携を活かした構成を検討できます。リポジトリではプロトコル解析ドキュメントやビルド手順が公開されています。
+          </p>
+        </section>
+
+        <section aria-labelledby="pd-use">
+          <h2 id="pd-use" class="text-lg font-semibold text-white">想定される用途</h2>
+          <ul class="mt-4 list-disc space-y-3 pl-5 marker:text-cyan-500/80">
+            <li>配信・番組オペレーション向けに、自作または汎用 RP2040 ボードで物理キーパッドを組み込む</li>
+            <li>Stream Deck エコシステムに近い挙動をオープン実装で検証・カスタマイズする</li>
+            <li>現場向けプロトタイプや予備デバイスとして、ファームウェアとハードを自分たちで保守する</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="pd-links">
+          <h2 id="pd-links" class="text-lg font-semibold text-white">リポジトリ</h2>
+          <p class="mt-4">
+            <a
+              href="https://github.com/MikanseiLaboratory/productiondeck"
+              class="inline-flex text-sm font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub: MikanseiLaboratory/productiondeck</a
+            >
+          </p>
+        </section>
+      </div>
+
+      <p class="mt-14">
+        <a
+          href="/projects.html"
+          class="text-sm font-medium text-zinc-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+          >← プロジェクト一覧へ</a
+        >
+      </p>
+    </main>
+
+    <site-footer></site-footer>
+  </body>
+</html>
