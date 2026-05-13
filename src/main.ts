@@ -121,6 +121,20 @@ class SiteFooter extends HTMLElement {
           <div>
             <p class="text-sm font-semibold text-white">未完成成果物研究所</p>
             <p class="mt-1 text-xs text-zinc-500">配信プロダクション向けツール・ハードウェアの研究開発コミュニティ</p>
+            <nav class="mt-4 flex flex-wrap gap-x-6 gap-y-2" aria-label="外部リンク">
+              <a
+                href="https://github.com/Incomplete-Outputs-Lab/Incomplete-Outputs-Lab.github.io"
+                class="text-sm text-zinc-400 transition-colors hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                target="_blank"
+                rel="noopener noreferrer"
+              >GitHub</a>
+              <a
+                href="https://discord.gg/YUbmg9Hq37"
+                class="text-sm text-zinc-400 transition-colors hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Discord</a>
+            </nav>
           </div>
           <p class="text-xs text-zinc-500">© ${new Date().getFullYear()} Mikansei Laboratory</p>
         </div>
