@@ -49,7 +49,9 @@ function buildNavItems(current: PageId): string {
 class SocialLinks extends HTMLElement {
   connectedCallback(): void {
     const variant = this.getAttribute("data-variant") ?? "page";
-    const ariaLabel = this.getAttribute("aria-label") ?? "GitHub と Discord";
+    const ariaLabel =
+      this.getAttribute("aria-label") ??
+      (variant === "footer" ? "外部リンク" : "公式の GitHub と Discord");
     const linkClass =
       variant === "footer"
         ? "inline-flex items-center gap-2 rounded text-sm font-medium text-zinc-400 transition-colors hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
@@ -156,7 +158,7 @@ class SiteFooter extends HTMLElement {
             <p class="text-sm font-semibold text-white">未完成成果物研究所</p>
             <p class="mt-1 text-xs text-zinc-500">配信プロダクション向けツール・ハードウェアの研究開発コミュニティ</p>
             <div class="mt-4">
-              <social-links data-variant="footer" aria-label="外部リンク"></social-links>
+              <social-links data-variant="footer"></social-links>
             </div>
           </div>
           <p class="text-xs text-zinc-500">© ${new Date().getFullYear()} Mikansei Laboratory</p>
